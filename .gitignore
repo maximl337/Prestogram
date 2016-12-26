@@ -3,6 +3,8 @@
 /storage/*.key
 /vendor
 /.idea
+/.phpintel
+/mysql
 Homestead.json
 Homestead.yaml
 .env
