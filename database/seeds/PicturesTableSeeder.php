@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 
+use Faker\Factory as Faker;
+
 class PicturesTableSeeder extends Seeder
 {
     /**
@@ -14,6 +16,8 @@ class PicturesTableSeeder extends Seeder
         DB::statement('SET FOREIGN_KEY_CHECKS = 0'); // disable foreign key constraints
 
         DB::table('pictures')->truncate();
+
+        $faker = Faker::create();
 
         $users = App\User::all();
 
@@ -35,6 +39,13 @@ class PicturesTableSeeder extends Seeder
 
             // add tags
             $picture->tags()->attach($tag);
+
+            // add comments
+            for($i=0;$i<3;$i++) {
+
+                $picture->comments()->save($user, ['body' => $faker->sentence]);
+
+            }
 
         }
 

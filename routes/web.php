@@ -14,3 +14,17 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('home', 'HomeController@index');
+
+Route::get('discover', 'PictureController@index');
+
+Route::get('upload', 'PictureController@create');
+
+Route::post('upload', 'PictureController@store');
+
+Route::get('users/{id}/pictures', 'PictureController@userPictures');
+
+Route::get('pictures', 'PictureController@myPictures');

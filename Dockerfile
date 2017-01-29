@@ -25,6 +25,8 @@ RUN apt-get clean && apt-get update \
     && ln -sf /dev/stdout /var/log/apache2/access.log \
     && ln -sf /dev/stderr /var/log/apache2/error.log
 
+# add code volume
+# VOLUME . /var/www
 # Add dir conf file to apache
 ADD docker/apache2/dir.conf /etc/apache2/mods-enabled/
 

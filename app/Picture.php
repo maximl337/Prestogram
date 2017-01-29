@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Picture extends Model
 {
     protected $fillable = [
+        'title',
         'url',
         'user_id'
     ];
@@ -36,5 +37,14 @@ class Picture extends Model
     public function tags()
     {
         return $this->belongsToMany(Tag::class);
+    }
+
+    /**
+     * [comments description]
+     * @return [type] [description]
+     */
+    public function comments()
+    {
+        return $this->belongsToMany(User::class, 'comments', 'picture_id', 'user_id')->withPivot('body')->withTimestamps();
     }
 }

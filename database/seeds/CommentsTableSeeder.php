@@ -18,6 +18,11 @@ class CommentsTableSeeder extends Seeder
         $users = App\User::all();
 
         foreach($users as $user) {
+
+            // get picture
+            $pictures = $user->pictures()->get();
+
+            
             $user->comments()->saveMany(factory(App\Comment::class, 2)->make());
         }
 

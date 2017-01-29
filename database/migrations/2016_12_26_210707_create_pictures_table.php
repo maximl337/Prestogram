@@ -15,6 +15,7 @@ class CreatePicturesTable extends Migration
     {
         Schema::create('pictures', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('title');
             $table->string('url');
             $table->integer('user_id')->unsigned();
             $table->softDeletes();

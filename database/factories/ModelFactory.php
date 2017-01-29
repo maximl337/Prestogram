@@ -32,8 +32,17 @@ $factory->define(App\Comment::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Picture::class, function (Faker\Generator $faker) {
 
+    $urls = [
+        'http://i.imgur.com/N7foTyz.jpg',
+        'http://i.imgur.com/WqornET.jpg',
+        'http://i.imgur.com/h8W64lg.jpg',
+        'http://i.imgur.com/LjbCFrs.jpg'
+        
+    ];
+
     return [
-        'url' => $faker->imageUrl()
+        'url' => $urls[rand(0, 3)],
+        'title' => $faker->sentence
     ];
 });
 
